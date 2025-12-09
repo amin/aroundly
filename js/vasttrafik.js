@@ -1,9 +1,8 @@
-export default class vasttrafik {
+export class vasttrafik {
   constructor(authKey) {
     this.authKey = authKey;
     this.token = null;
     this.tokenExpiry = null;
-    console.log(authKey);
   }
 
   async getToken() {
@@ -49,6 +48,10 @@ export default class vasttrafik {
       }
     );
 
-    console.log(await response.json());
+    if (!response.ok) {
+      throw new Error("Failed to get points of interest.");
+    }
+
+    return await response.json();
   }
 }
