@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Aroundly API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

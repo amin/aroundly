@@ -1,0 +1,24 @@
+meta {
+  name: Get Interesting Location
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://ext-api.vasttrafik.se/pr/v4/locations/by-coordinates?latitude=57.754721&longitude=11.927385&radiusInMeters=500&limit=10&offset=0&bodSearch=false
+  body: none
+  auth: inherit
+}
+
+params:query {
+  latitude: 57.754721
+  longitude: 11.927385
+  radiusInMeters: 500
+  limit: 10
+  offset: 0
+  bodSearch: false
+}
+
+settings {
+  encodeUrl: true
+}
