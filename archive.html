@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Get coordinates of the mouse pointer</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      const map = new mapboxgl.Map({
+        container: "map", // container id
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: "mapbox://styles/mapbox/standard",
+        center: [11.9746, 57.7089], // starting position
+        zoom: 13, // starting zoom
+        maxBounds: bounds,
+      });
+
+      map.getCanvas().style.cursor = "pointer";
+
+      map.on("click", (event) => {
+        const existing = document.querySelectorAll(".mapboxgl-marker");
+        existing.forEach((m) => m.remove());
+        const coordinates = [event.lngLat.lng, event.lngLat.lat];
+
+        console.log(coordinates);
+        new mapboxgl.Marker({
+          scale: 2,
+          color: "red",
+        })
+          .setLngLat(coordinates)
+          .addTo(map);
+      });
+    </script>
+  </body>
+</html>
