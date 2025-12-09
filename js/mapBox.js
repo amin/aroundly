@@ -5,7 +5,7 @@ export class MapBox {
       container,
       style: "mapbox://styles/mapbox/standard",
       center: [11.9746, 57.7089],
-      zoom: 14,
+      zoom: 10,
       collectResourceTiming: false,
       trackResize: true,
       maxBounds: [
@@ -14,5 +14,27 @@ export class MapBox {
       ],
     });
     this.map.getCanvas().style.cursor = "pointer";
+    this.currentCoordinates = null;
+  }
+
+  getMap() {
+    return this.map;
+  }
+
+  highlightLocations(coordinates) {
+    this.resetMarkers();
+
+    coordinates.forEach((coordinate) => {
+      new mapboxgl.Marker({
+        scale: 1.25,
+        color: "red",
+      })
+        .setLngLat(coordinate)
+        .addTo(this.map);
+    });
+  }
+
+  resetMarkers() {
+    document.querySelectorAll(".mapboxgl-marker").forEach((m) => m.remove());
   }
 }

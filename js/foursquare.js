@@ -6,7 +6,7 @@ export class FourSquare {
   async getPointsOfInterest(lat, long) {
     const params = new URLSearchParams({
       ll: `${lat},${long}`,
-      radius: 500,
+      radius: 750,
     });
 
     const response = await fetch(
@@ -15,7 +15,7 @@ export class FourSquare {
         method: "GET",
         headers: {
           Accept: "application/json",
-          Authorization: `Bearer ${this.apiKey}`, // Fixed: apiKey not apikey
+          Authorization: `Bearer ${this.apiKey}`,
           "X-Places-Api-Version": "2025-06-17",
         },
       }

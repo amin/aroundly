@@ -8,4 +8,14 @@ const map = new MapBox(
 
 const fq = new FourSquare("3UPNNKDSQ3HQAXI3FSQMC5SQ2TYVENNJ0KNNI0K1D5CRCYNF");
 
-fq.getPointsOfInterest(57.7089, 11.9746);
+map.getMap().on("click", async (e) => {
+  const { lat, lng } = e.lngLat;
+
+  const { results } = await fq.getPointsOfInterest(lat, lng);
+
+  const locations = results.map((poi) => {
+    return [poi.longitude, poi.latitude];
+  });
+
+  map.highlightLocations(locations);
+});
