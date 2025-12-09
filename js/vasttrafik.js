@@ -1,4 +1,4 @@
-export class vasttrafik {
+export class Vasttrafik {
   constructor(authKey) {
     this.authKey = authKey;
     this.token = null;

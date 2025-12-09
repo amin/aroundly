@@ -1,14 +1,11 @@
-fetch(
-  "https://ext-api.vasttrafik.se/pr/v4/locations/by-coordinates?latitude=57.754721&longitude=11.927385&radiusInMeters=500&limit=10&offset=0&bodSearch=false",
-  {
-    method: "GET",
-    headers: {
-      Accept: "text/plain",
-      Authorization:
-        "Bearer eyJ4NXQiOiJaV05sTURNNE56SmpZelZrT1dFNU16RTFNalF5TTJaaE5XSm1ORE0zWkRVMk9HRXdOVGxqWVRjNE1tWTNPRGcwWW1JeFlqSTFPVGMzTjJWallqZzRNdyIsImtpZCI6IlpXTmxNRE00TnpKall6VmtPV0U1TXpFMU1qUXlNMlpoTldKbU5ETTNaRFUyT0dFd05UbGpZVGM0TW1ZM09EZzBZbUl4WWpJMU9UYzNOMlZqWWpnNE13X1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJfTWVhaG5VUjNQSTkyWTRBZE1yaGdIcFl2RGdhIiwiYXV0IjoiQVBQTElDQVRJT04iLCJiaW5kaW5nX3R5cGUiOiJyZXF1ZXN0IiwiaXNzIjoiaHR0cHM6XC9cL2V4dC1hcGkudmFzdHRyYWZpay5zZVwvdG9rZW4iLCJ0aWVySW5mbyI6eyJVbmxpbWl0ZWQiOnsidGllclF1b3RhVHlwZSI6InJlcXVlc3RDb3VudCIsImdyYXBoUUxNYXhDb21wbGV4aXR5IjowLCJncmFwaFFMTWF4RGVwdGgiOjAsInN0b3BPblF1b3RhUmVhY2giOnRydWUsInNwaWtlQXJyZXN0TGltaXQiOjAsInNwaWtlQXJyZXN0VW5pdCI6bnVsbH19LCJrZXl0eXBlIjoiUFJPRFVDVElPTiIsInN1YnNjcmliZWRBUElzIjpbeyJzdWJzY3JpYmVyVGVuYW50RG9tYWluIjoiY2FyYm9uLnN1cGVyIiwibmFtZSI6ImFwaTAwMTMtcHIiLCJjb250ZXh0IjoiXC9wclwvdjQiLCJwdWJsaXNoZXIiOiJhZG1pbiIsInZlcnNpb24iOiJ2NCIsInN1YnNjcmlwdGlvblRpZXIiOiJVbmxpbWl0ZWQifV0sImF1ZCI6Imh0dHBzOlwvXC9leHQtYXBpLnZhc3R0cmFmaWsuc2UiLCJuYmYiOjE3NjQ4NzY5ODgsImFwcGxpY2F0aW9uIjp7Im93bmVyIjoiX01lYWhuVVIzUEk5Mlk0QWRNcmhnSHBZdkRnYSIsInRpZXJRdW90YVR5cGUiOm51bGwsInRpZXIiOiJVbmxpbWl0ZWQiLCJuYW1lIjoiQXJvdW5kbHkiLCJpZCI6NDU5MywidXVpZCI6IjEwOGZmMTYxLTExZjQtNDNiMy1iZmM5LTUyYWJlMmRmMjkwZSJ9LCJhenAiOiJfTWVhaG5VUjNQSTkyWTRBZE1yaGdIcFl2RGdhIiwic2NvcGUiOiJkZWZhdWx0IiwiZXhwIjoxNzY0OTYzMzg4LCJpYXQiOjE3NjQ4NzY5ODgsImJpbmRpbmdfcmVmIjoiOWIzNWI2OWYyMjdhNjIxNzUzMDE0YjEzMmNmN2M3M2YiLCJqdGkiOiJkZGJkZWZhYi04ZmNmLTQ5YjgtOWE3Zi0xZDc3N2ExNWMxNmQifQ.LUfyZOz97zZkFFx2DtoYvGZOJUb5b8rotXPXLyRADlL6pYAkvaolaQ4htv_T3C6Bs-2EQNGQVgSeoapVmYxWqoO_sj4H3un41ICYzdCbqJKd6ljRIzWf1GuQ0d-TemQrHAs1_PmxuA5sAxL-WPDJsMMdyRxvPb1qa2E6ahh7iP208DmjDWMUp_EFxNITHBrUyhYmKFVazqghQL528FkeHSWl_ht2sHYmFg7_Wh5zW29sdhN82k4QGCkcRWbJK5pDdu2231CSgkedUd656Kjtvm1uhOD8-cb5-qHqtePDoUnxPBmkB2Ag14g0gdUvxc-Rum0IzPjAmG7JCJTLAwuI4Q",
-    },
-  }
-)
-  .then((response) => response.text()) // or response.json() if it returns JSON
-  .then((data) => console.log(data))
-  .catch((error) => console.error("Error:", error));
+import { Vasttrafik } from "./js/vasttrafik.js";
+import { MapBox } from "./js/mapBox.js";
+
+const vt = new Vasttrafik(
+  "X01lYWhuVVIzUEk5Mlk0QWRNcmhnSHBZdkRnYTpIcjZJRWd2cWZLaUdiZndnYTZfdGxKZl9wZlVh"
+);
+
+const map = new MapBox(
+  document.querySelector("#map"),
+  "pk.eyJ1IjoiYW1pbmNpZGVudCIsImEiOiJjbWl5ZXN2cDIwY2x3M2tza2lkdTRqZThmIn0.qndu1m-lL94-22IAdeOE8g"
+);
