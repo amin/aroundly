@@ -1,0 +1,7 @@
+export default {
+  API_KEYS: {
+    FOURSQUARE: "3UPNNKDSQ3HQAXI3FSQMC5SQ2TYVENNJ0KNNI0K1D5CRCYNF",
+    MAPBOX:
+      "pk.eyJ1IjoiYW1pbmNpZGVudCIsImEiOiJjbWl5ZXN2cDIwY2x3M2tza2lkdTRqZThmIn0.qndu1m-lL94-22IAdeOE8g",
+  },
+};
