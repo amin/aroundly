@@ -6,7 +6,7 @@ export class FourSquare {
   async getPointsOfInterest(lat, long) {
     const params = new URLSearchParams({
       ll: `${lat},${long}`,
-      radius: 750,
+      radius: 500,
     });
 
     const response = await fetch(
@@ -22,7 +22,7 @@ export class FourSquare {
     );
 
     if (!response.ok) {
-      throw new Error("Could not retrieve point of interest data."); // Fixed typo
+      throw new Error("Could not retrieve point of interest data.");
     }
 
     return await response.json();

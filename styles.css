@@ -1,3 +1,7 @@
+:root {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,4 +12,23 @@ body {
   top: 0;
   bottom: 0;
   width: 100%;
+}
+
+.mapboxgl-ctrl-top-left {
+  transform: scale(1.75) translate(1rem, 2rem);
+}
+
+.logo {
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+  z-index: 1;
+  font-size: 4rem;
+  font-family: "Lobster", sans-serif;
+  text-transform: uppercase;
+  background-color: rgba(39, 131, 245, 0.32);
+  padding: 3rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.15rem;
+  border: 0.5rem solid steelblue;
 }
