@@ -1,9 +1,12 @@
 :root {
   font-size: 16px;
+  --primary-color: #4eaeff;
+  --secondary-color: steelblue;
+  --primary-font: "Roboto", sans-serif
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--primary-font);
   margin: 0;
   padding: 0;
 }
@@ -21,17 +24,17 @@ body {
   top: -1rem;
   right: -1rem;
 
-  background-color: #4eaeff;
-  border-radius: 5px;
+  background-color: var(--primary-color);
+  border-radius: 0.4rem;
 }
 
 .mapboxgl-popup-close-button:hover {
-  background-color: steelblue;
+  background-color: var(--secondary-color);
   color: #fff;
 }
 
 .mapboxgl-popup {
-  max-width: fit-content !important;
+  max-width: 260px !important;
 }
 .mapboxgl-popup-content {
   padding: 1rem;
@@ -50,7 +53,7 @@ body {
     padding: 1rem;
     border-radius: 0.5rem;
     letter-spacing: 0.15rem;
-    border: 0.5rem solid steelblue;
+    border: 0.5rem solid var(--secondary-color);
     font-weight: 700;
     color: #fff;
 }
