@@ -27,9 +27,9 @@ export class MapBox {
         type: "circle",
         source: "pois",
         paint: {
-          "circle-radius": 12,
+          "circle-radius": 8,
           "circle-color": "#1d4ed8",
-          "circle-stroke-width": 2,
+          "circle-stroke-width": 3,
           "circle-stroke-color": "#ffffff",
         },
       });
@@ -37,12 +37,37 @@ export class MapBox {
       this.map.on("click", "pois-layer", (e) => {
         e.originalEvent.stopPropagation();
         const props = e.features[0].properties;
+
+        this.getPopupElement(props);
+
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
-          .setHTML(`<strong>${props.name}</strong><br>${props.address || ""}`)
+          .setDOMContent(this.getPopupElement(props))
           .addTo(this.map);
       });
     });
+  }
+
+  getPopupElement(props) {
+    //  name: "Gullbergskajen", address: "Gullbergs strandgata, Göteborg" }
+    const popup = document.createElement("div");
+    popup.classList.add("popup");
+
+    for (const [key, value] of Object.entries(props)) {
+      const element = document.createElement("div");
+      if (key === "name") {
+        element.classList.add("popup-name");
+        element.textContent = value;
+      }
+
+      if (key === "address") {
+        element.classList.add("popup-address");
+        element.textContent = value;
+      }
+      popup.append(element);
+    }
+
+    return popup;
   }
 
   getMap() {
