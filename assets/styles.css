@@ -2,7 +2,8 @@
   font-size: 16px;
   --primary-color: #4eaeff;
   --secondary-color: steelblue;
-  --primary-font: "Roboto", sans-serif
+  --accent-color: rgba(39, 131, 245, 0.75);
+  --primary-font: "Roboto", sans-serif;
 }
 
 body {
@@ -18,19 +19,19 @@ body {
   width: 100%;
 }
 
-
 .mapboxgl-popup-close-button {
   font-size: 2rem;
-  top: -1rem;
+  top: -1.5rem;
   right: -1rem;
-
-  background-color: var(--primary-color);
+  color: #fff;
+  background-color: var(--accent-color);
   border-radius: 0.4rem;
+  width: 2.5rem;
 }
 
 .mapboxgl-popup-close-button:hover {
   background-color: var(--secondary-color);
-  color: #fff;
+
 }
 
 .mapboxgl-popup {
@@ -42,18 +43,20 @@ body {
   line-height: 2rem;
 }
 
+/* Aroundly elements */
+
 .logo {
     position: absolute;
-    right: 3rem;
+    right: 5rem;
     top: 3rem;
     z-index: 1;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
-    background-color: rgba(39, 131, 245, 0.75);
+    background-color: var(--accent-color);
     padding: 1rem;
     border-radius: 0.5rem;
     letter-spacing: 0.15rem;
-    border: 0.5rem solid var(--secondary-color);
+    border: 0.1rem solid var(--secondary-color);
     font-weight: 700;
     color: #fff;
 }
@@ -62,3 +65,58 @@ body {
   text-transform: uppercase;
   font-weight: 700;
 }
+
+.help {
+  position: absolute;
+  border-left: 0.1rem solid var(--secondary-color);
+  width: 80vw;
+  height: 100vh;
+  right: 0;
+  background-color: var(--primary-color);
+  z-index: 2;
+  transform: translateX(100%);
+  transition: transform 400ms ease-in-out;
+  font-size: 1.25rem;
+  color: #fff;
+  line-height: 1.5rem;
+  
+  @media screen and (min-width: 768px) {
+    width: 40vw;
+  }
+}
+
+.help-container {
+  padding: 1rem;
+}
+
+.help-burger {
+  cursor: pointer;
+  content: "?";
+  border: 0.1rem solid var(--secondary-color);
+  width: 3rem;
+  height: 3rem;
+  top: 8rem;
+  position: absolute;
+  background-color: var(--accent-color);;
+  transform: translateX(-100%);
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.25rem;
+  color: #fff;
+
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+
+.help-burger:hover {
+  background-color: var(--secondary-color);
+}
+
+.help.active {
+  transform: translateX(0);
+}
+

@@ -37,7 +37,6 @@ export class MapBox {
       this.map.on("click", "pois-layer", (e) => {
         e.originalEvent.stopPropagation();
         const props = e.features[0].properties;
-
         this.getPopupElement(props);
 
         new mapboxgl.Popup()
@@ -49,7 +48,6 @@ export class MapBox {
   }
 
   getPopupElement(props) {
-    //  name: "Gullbergskajen", address: "Gullbergs strandgata, Göteborg" }
     const popup = document.createElement("div");
     popup.classList.add("popup");
 
