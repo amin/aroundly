@@ -20,7 +20,7 @@ map.getMap().on("click", async (e) => {
   if (features.length > 0) return;
 
   const { lat, lng } = e.lngLat;
-  const { results } = await foursquare.getPointsOfInterest(lat, lng);
+  const { results } = await foursquare.getPointsOfInterest(lat, lng, 500);
 
   map.setLocations(results);
 });

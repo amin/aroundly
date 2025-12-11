@@ -3,10 +3,10 @@ export class FourSquare {
     this.apiKey = apiKey;
   }
 
-  async getPointsOfInterest(lat, long) {
+  async getPointsOfInterest(lat, long, radius) {
     const params = new URLSearchParams({
       ll: `${lat},${long}`,
-      radius: 500,
+      radius: radius,
     });
 
     const response = await fetch(
